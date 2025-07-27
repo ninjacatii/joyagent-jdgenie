@@ -146,6 +146,12 @@ class GenieConfigTest {
         log.info(JSON.toJSONString(genieConfig.getStructPrePostPromptConfig()));
     }
 
+    @Test
+    public void outputStylePromptsTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(JSON.toJSONString(genieConfig.getOutputStylePrompts()));
+    }
+
 
 
 }

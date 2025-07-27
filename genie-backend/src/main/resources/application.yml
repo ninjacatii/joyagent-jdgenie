@@ -87,7 +87,7 @@ autobots:
     open_think_function_call_split: '{}'
     struct_pre_post_prompt_config: struct_pre_post_prompt_config.json
     sensitive_patterns: '{}'
-    output_style_prompts: '{"html": "", "docs": "，最后以 markdown 展示最终结果", "table": "，最后以excel 展示最终结果", "ppt": "，最后以 ppt 展示最终结果"}'
+    output_style_prompts: output_style_prompts.json
     message_interval: '{}'
     user_name: ''
     default_model_name: gpt-4.1

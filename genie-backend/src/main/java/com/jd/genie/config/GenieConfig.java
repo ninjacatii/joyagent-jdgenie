@@ -251,7 +251,7 @@ public class GenieConfig {
     private Map<String, String> outputStylePrompts = new HashMap<>();
     @Value("${autobots.autoagent.output_style_prompts:{}}")
     public void setOutputStylePrompts(String jsonStr) {
-        this.outputStylePrompts = JSON.parseObject(jsonStr, new TypeReference<Map<String, String>>() {
+        this.outputStylePrompts = JSON.parseObject(getConfig(jsonStr), new TypeReference<Map<String, String>>() {
         });
     }
 
