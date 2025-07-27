@@ -139,10 +139,10 @@ public class GenieConfig {
     /**
      * fileTool 配置
      */
-    private Map<String, Object> fileToolPamras = new HashMap<>();
+    private Map<String, Object> fileToolParams = new HashMap<>();
     @Value("${autobots.autoagent.tool.file_tool.params:{}}")
-    public void setFileoolPamras(String jsonStr) {
-        this.fileToolPamras = JSON.parseObject(jsonStr, Map.class);
+    public void setFileoolParams(String jsonStr) {
+        this.fileToolParams = JSON.parseObject(getConfig(jsonStr), Map.class);
     }
 
     /**

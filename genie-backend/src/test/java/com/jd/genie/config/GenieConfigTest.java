@@ -128,6 +128,12 @@ class GenieConfigTest {
         log.info(JSON.toJSONString(genieConfig.getReportToolParams()));
     }
 
+    @Test
+    public void fileToolParamsTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(JSON.toJSONString(genieConfig.getFileToolParams()));
+    }
+
 
 
 }
