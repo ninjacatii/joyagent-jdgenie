@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "description": "需要搜索的全部内容及描述",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query"
+  ]
+}

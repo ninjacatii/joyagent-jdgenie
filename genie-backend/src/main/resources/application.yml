@@ -63,7 +63,7 @@ autobots:
         desc: 这是一个搜索工具，可以搜索各种互联网知识
         params: '{}'
       deep_search:
-        params: '{"type":"object","properties":{"query":{"description":"需要搜索的全部内容及描述","type":"string"}},"required":["query"]}'
+        params: tool.deep_search.params.json
         page_count: 5
         src_config: '{}'
         message:

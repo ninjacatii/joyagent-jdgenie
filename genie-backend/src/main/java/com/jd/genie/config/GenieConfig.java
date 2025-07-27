@@ -148,10 +148,10 @@ public class GenieConfig {
     /**
      * DeepSearchTool 配置
      */
-    private Map<String, Object> deepSearchToolPamras = new HashMap<>();
+    private Map<String, Object> deepSearchToolParams = new HashMap<>();
     @Value("${autobots.autoagent.tool.deep_search.params:{}}")
-    public void setDeepSearchToolPamras(String jsonStr) {
-        this.deepSearchToolPamras = JSON.parseObject(jsonStr, Map.class);
+    public void setDeepSearchToolParams(String jsonStr) {
+        this.deepSearchToolParams = JSON.parseObject(getConfig(jsonStr), Map.class);
     }
 
     @Value("${autobots.autoagent.tool.file_tool.truncate_len:5000}")

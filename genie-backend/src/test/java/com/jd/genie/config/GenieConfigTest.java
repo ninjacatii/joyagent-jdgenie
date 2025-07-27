@@ -134,6 +134,12 @@ class GenieConfigTest {
         log.info(JSON.toJSONString(genieConfig.getFileToolParams()));
     }
 
+    @Test
+    public void deepSearchToolParamsTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(JSON.toJSONString(genieConfig.getDeepSearchToolParams()));
+    }
+
 
 
 }
