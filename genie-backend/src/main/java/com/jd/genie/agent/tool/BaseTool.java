@@ -8,7 +8,7 @@ import java.util.Map;
 public interface BaseTool {
     String getName();
 
-    String getDescription();
+    String getDescription() throws Exception;
 
     Map<String, Object> toParams();
 

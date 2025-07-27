@@ -8,7 +8,7 @@ public interface AgentHandlerService {
     /**
      * 处理Agent请求
      */
-    String handle(AgentContext context, AgentRequest request);
+    String handle(AgentContext context, AgentRequest request) throws Exception;
 
     /**
      * 进入handler条件

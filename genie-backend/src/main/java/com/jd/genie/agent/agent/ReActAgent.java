@@ -117,7 +117,7 @@ public abstract class ReActAgent extends BaseAgent {
     }
 
     // 提取系统提示格式化逻辑
-    private String formatSystemPrompt(String task) {
+    private String formatSystemPrompt(String task) throws Exception {
         String digitalEmployeePrompt = getDigitalEmployeePrompt();
         if (digitalEmployeePrompt == null) {
             throw new IllegalStateException("System prompt is not configured");

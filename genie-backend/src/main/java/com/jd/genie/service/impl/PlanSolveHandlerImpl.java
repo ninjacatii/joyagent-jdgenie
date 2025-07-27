@@ -32,7 +32,7 @@ public class PlanSolveHandlerImpl implements AgentHandlerService {
 
 
     @Override
-    public String handle(AgentContext agentContext, AgentRequest request) {
+    public String handle(AgentContext agentContext, AgentRequest request) throws Exception {
 
         PlanningAgent planning = new PlanningAgent(agentContext);
         ExecutorAgent executor = new ExecutorAgent(agentContext);

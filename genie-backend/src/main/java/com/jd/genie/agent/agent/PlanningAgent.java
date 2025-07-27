@@ -39,7 +39,7 @@ public class PlanningAgent extends ReActAgent {
     private String nextStepPromptSnapshot;
     private String planId;
 
-    public PlanningAgent(AgentContext context) {
+    public PlanningAgent(AgentContext context) throws Exception {
         setName("planning");
         setDescription("An agent that creates and manages plans to solve tasks");
         ApplicationContext applicationContext = SpringContextHolder.getApplicationContext();

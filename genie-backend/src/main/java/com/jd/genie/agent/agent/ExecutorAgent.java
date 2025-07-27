@@ -36,7 +36,7 @@ public class ExecutorAgent extends ReActAgent {
 
     private Integer taskId;
 
-    public ExecutorAgent(AgentContext context) {
+    public ExecutorAgent(AgentContext context) throws Exception {
         setName("executor");
         setDescription("an agent that can execute tool calls.");
         ApplicationContext applicationContext = SpringContextHolder.getApplicationContext();

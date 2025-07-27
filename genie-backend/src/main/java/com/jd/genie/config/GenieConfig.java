@@ -8,7 +8,10 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,33 +20,38 @@ import java.util.Map;
 @Getter
 @Configuration
 public class GenieConfig {
+    private String getConfig(String key) {
+        ClassPathResource resource = new ClassPathResource(key);
+        try (InputStream inputStream = resource.getInputStream()) {
+            return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            log.error("Get resource file:[{}] error:{}", key, e.getMessage(), e);
+            return null;
+        }
+    }
 
     private Map<String, String> plannerSystemPromptMap = new HashMap<>();
     @Value("${autobots.autoagent.planner.system_prompt:{}}")
-    public void setPlannerSystemPromptMap(String list) {
-        plannerSystemPromptMap = JSONObject.parseObject(list, new TypeReference<Map<String, String>>() {
-        });
+    public void setPlannerSystemPromptMap(String list) throws Exception {
+        plannerSystemPromptMap.put("default", getConfig(list));
     }
 
     private Map<String, String> plannerNextStepPromptMap = new HashMap<>();
     @Value("${autobots.autoagent.planner.next_step_prompt:{}}")
-    public void setPlannerNextStepPromptMap(String list) {
-        plannerNextStepPromptMap = JSONObject.parseObject(list, new TypeReference<Map<String, String>>() {
-        });
+    public void setPlannerNextStepPromptMap(String list) throws Exception {
+        plannerNextStepPromptMap.put("default", getConfig(list));
     }
 
     private Map<String, String> executorSystemPromptMap = new HashMap<>();
     @Value("${autobots.autoagent.executor.system_prompt:{}}")
-    public void setExecutorSystemPromptMap(String list) {
-        executorSystemPromptMap = JSONObject.parseObject(list, new TypeReference<Map<String, String>>() {
-        });
+    public void setExecutorSystemPromptMap(String list) throws Exception {
+        executorSystemPromptMap.put("default", getConfig(list));
     }
 
     private Map<String, String> executorNextStepPromptMap = new HashMap<>();
     @Value("${autobots.autoagent.executor.next_step_prompt:{}}")
-    public void setExecutorNextStepPromptMap(String list) {
-        executorNextStepPromptMap = JSONObject.parseObject(list, new TypeReference<Map<String, String>>() {
-        });
+    public void setExecutorNextStepPromptMap(String list) throws Exception {
+        executorNextStepPromptMap.put("default", getConfig(list));
     }
 
     private Map<String, String> executorSopPromptMap = new HashMap<>();
@@ -55,16 +63,14 @@ public class GenieConfig {
 
     private Map<String, String> reactSystemPromptMap = new HashMap<>();
     @Value("${autobots.autoagent.react.system_prompt:{}}")
-    public void setReactSystemPromptMap(String list) {
-        reactSystemPromptMap = JSONObject.parseObject(list, new TypeReference<Map<String, String>>() {
-        });
+    public void setReactSystemPromptMap(String list) throws Exception {
+        reactSystemPromptMap.put("default", getConfig(list));
     }
 
     private Map<String, String> reactNextStepPromptMap = new HashMap<>();
     @Value("${autobots.autoagent.react.next_step_prompt:{}}")
-    public void setReactNextStepPromptMap(String list) {
-        reactNextStepPromptMap = JSONObject.parseObject(list, new TypeReference<Map<String, String>>() {
-        });
+    public void setReactNextStepPromptMap(String list) throws Exception {
+        reactNextStepPromptMap.put("default", getConfig(list));
     }
 
     @Value("${autobots.autoagent.planner.model_name:gpt-4o-0806}")
@@ -78,9 +84,15 @@ public class GenieConfig {
 
     @Value("${autobots.autoagent.tool.plan_tool.desc:}")
     private String planToolDesc;
+    public String getPlanToolDesc() throws Exception {
+        return getConfig(planToolDesc);
+    }
 
     @Value("${autobots.autoagent.tool.code_agent.desc:}")
     private String codeAgentDesc;
+    public String getCodeAgentDesc() {
+        return getConfig(codeAgentDesc);
+    }
 
     @Value("${autobots.autoagent.tool.report_tool.desc:}")
     private String reportToolDesc;
@@ -97,16 +109,16 @@ public class GenieConfig {
     private Map<String, Object> planToolParams = new HashMap<>();
     @Value("${autobots.autoagent.tool.plan_tool.params:{}}")
     public void setPlanToolParams(String jsonStr) {
-        this.planToolParams = JSON.parseObject(jsonStr, Map.class);
+        this.planToolParams = JSON.parseObject(getConfig(jsonStr), Map.class);
     }
 
     /**
      * codeAgent 配置
      */
-    private Map<String, Object> codeAgentPamras = new HashMap<>();
+    private Map<String, Object> codeAgentParams = new HashMap<>();
     @Value("${autobots.autoagent.tool.code_agent.params:{}}")
-    public void setCodeAgentPamras(String jsonStr) {
-        this.codeAgentPamras = JSON.parseObject(jsonStr, Map.class);
+    public void setCodeAgentParams(String jsonStr) {
+        this.codeAgentParams = JSON.parseObject(getConfig(jsonStr), Map.class);
     }
 
     /**

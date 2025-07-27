@@ -34,7 +34,7 @@ public class ReactImplAgent extends ReActAgent {
     private String systemPromptSnapshot;
     private String nextStepPromptSnapshot;
 
-    public ReactImplAgent(AgentContext context) {
+    public ReactImplAgent(AgentContext context) throws Exception {
         setName("react");
         setDescription("an agent that can execute tool calls.");
         ApplicationContext applicationContext = SpringContextHolder.getApplicationContext();

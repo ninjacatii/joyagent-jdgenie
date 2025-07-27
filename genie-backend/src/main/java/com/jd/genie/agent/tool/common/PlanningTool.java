@@ -34,7 +34,7 @@ public class PlanningTool implements BaseTool {
     }
 
     @Override
-    public String getDescription() {
+    public String getDescription() throws Exception {
         String desc = "这是一个计划工具，可让代理创建和管理用于解决复杂任务的计划。\n该工具提供创建计划、更新计划步骤和跟踪进度的功能。\n使用中文回答";
         GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
         return genieConfig.getPlanToolDesc().isEmpty() ? desc : genieConfig.getPlanToolDesc();

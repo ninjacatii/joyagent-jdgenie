@@ -24,7 +24,7 @@ public class ReactHandlerImpl implements AgentHandlerService {
 
 
     @Override
-    public String handle(AgentContext agentContext, AgentRequest request) {
+    public String handle(AgentContext agentContext, AgentRequest request) throws Exception {
 
         ReActAgent executor = new ReactImplAgent(agentContext);
         SummaryAgent summary = new SummaryAgent(agentContext);
