@@ -96,9 +96,15 @@ public class GenieConfig {
 
     @Value("${autobots.autoagent.tool.report_tool.desc:}")
     private String reportToolDesc;
+    public String getReportToolDesc() {
+        return getConfig(reportToolDesc);
+    }
 
     @Value("${autobots.autoagent.tool.file_tool.desc:}")
     private String fileToolDesc;
+    public String getFileToolDesc() {
+        return getConfig(fileToolDesc);
+    }
 
     @Value("${autobots.autoagent.tool.deep_search_tool.desc:}")
     private String deepSearchToolDesc;

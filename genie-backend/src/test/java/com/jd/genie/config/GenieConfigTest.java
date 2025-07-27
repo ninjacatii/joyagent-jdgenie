@@ -80,4 +80,18 @@ class GenieConfigTest {
         log.info(JSON.toJSONString(genieConfig.getCodeAgentParams()));
     }
 
+    @Test
+    public void reportToolDescTest() throws Exception {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getReportToolDesc());
+    }
+
+    @Test
+    public void fileToolDescTest() throws Exception {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getFileToolDesc());
+    }
+
+
+
 }
