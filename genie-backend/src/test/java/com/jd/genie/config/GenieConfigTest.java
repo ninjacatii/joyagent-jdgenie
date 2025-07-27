@@ -104,6 +104,12 @@ class GenieConfigTest {
         log.info(genieConfig.getDigitalEmployeePrompt());
     }
 
+    @Test
+    public void structParseToolSystemPromptTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getStructParseToolSystemPrompt());
+    }
+
 
 
 }

@@ -259,7 +259,7 @@ public class GenieConfig {
     private String structParseToolSystemPrompt = "";
     @Value("${autobots.autoagent.struct_parse_tool_system_prompt:}")
     public void setStructParseToolSystemPrompt(String str) {
-        this.structParseToolSystemPrompt = str;
+        this.structParseToolSystemPrompt = getConfig(str);
     }
 
 	@Value("${autobots.multiagent.sseClient.readTimeout:1800}")
