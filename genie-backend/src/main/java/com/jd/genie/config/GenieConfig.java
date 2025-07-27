@@ -130,10 +130,10 @@ public class GenieConfig {
     /**
      * reportTool 配置
      */
-    private Map<String, Object> reportToolPamras = new HashMap<>();
+    private Map<String, Object> reportToolParams = new HashMap<>();
     @Value("${autobots.autoagent.tool.report_tool.params:{}}")
-    public void setHtmlToolPamras(String jsonStr) {
-        this.reportToolPamras = JSON.parseObject(jsonStr, Map.class);
+    public void setReportToolParams(String jsonStr) {
+        this.reportToolParams = JSON.parseObject(getConfig(jsonStr), Map.class);
     }
 
     /**

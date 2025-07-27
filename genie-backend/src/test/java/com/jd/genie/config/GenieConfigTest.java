@@ -122,6 +122,12 @@ class GenieConfigTest {
         log.info(genieConfig.getGenieBasePrompt());
     }
 
+    @Test
+    public void reportToolParamsTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(JSON.toJSONString(genieConfig.getReportToolParams()));
+    }
+
 
 
 }
