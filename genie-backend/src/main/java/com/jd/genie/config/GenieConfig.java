@@ -227,9 +227,13 @@ public class GenieConfig {
 
     @Value("${autobots.autoagent.digital_employee_prompt:}")
     private String digitalEmployeePrompt;
+    public String getDigitalEmployeePrompt() {
+        return getConfig(digitalEmployeePrompt);
+    }
 
     @Value("${autobots.autoagent.summary.message_size_limit:1000}")
     private Integer messageSizeLimit;
+
 
     private Map<String, String> sensitivePatterns = new HashMap<>();
     @Value("${autobots.autoagent.sensitive_patterns:{}}")

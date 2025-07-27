@@ -98,6 +98,12 @@ class GenieConfigTest {
         log.info(genieConfig.getSummarySystemPrompt());
     }
 
+    @Test
+    public void digitalEmployeePromptTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getDigitalEmployeePrompt());
+    }
+
 
 
 }
