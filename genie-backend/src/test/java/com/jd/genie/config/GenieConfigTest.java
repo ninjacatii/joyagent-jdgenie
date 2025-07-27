@@ -116,6 +116,12 @@ class GenieConfigTest {
         log.info(genieConfig.getGenieSopPrompt());
     }
 
+    @Test
+    public void genieBasePromptTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getGenieBasePrompt());
+    }
+
 
 
 }

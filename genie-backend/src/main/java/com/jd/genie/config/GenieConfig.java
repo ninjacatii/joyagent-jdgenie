@@ -276,6 +276,9 @@ public class GenieConfig {
 
     @Value("${autobots.autoagent.genie_base_prompt:}")
     private String genieBasePrompt;
+    public String getGenieBasePrompt() {
+        return getConfig(genieBasePrompt);
+    }
 
     @Value("${autobots.autoagent.tool.task_complete_desc:当前task完成，请将当前task标记为 completed}")
     private String taskCompleteDesc;
