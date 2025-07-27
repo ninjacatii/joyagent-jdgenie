@@ -140,6 +140,12 @@ class GenieConfigTest {
         log.info(JSON.toJSONString(genieConfig.getDeepSearchToolParams()));
     }
 
+    @Test
+    public void structPrePostPromptConfigTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(JSON.toJSONString(genieConfig.getStructPrePostPromptConfig()));
+    }
+
 
 
 }

@@ -148,6 +148,12 @@ public class GenieConfig {
     /**
      * DeepSearchTool 配置
      */
+    private Map<String, Object> structPrePostPromptConfig = new HashMap<>();
+    @Value("${autobots.autoagent.struct_pre_post_prompt_config:{}}")
+    public void setStructPrePostPromptConfig(String jsonStr) {
+        this.structPrePostPromptConfig = JSON.parseObject(getConfig(jsonStr), Map.class);
+    }
+
     private Map<String, Object> deepSearchToolParams = new HashMap<>();
     @Value("${autobots.autoagent.tool.deep_search.params:{}}")
     public void setDeepSearchToolParams(String jsonStr) {
