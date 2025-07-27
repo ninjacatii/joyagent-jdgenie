@@ -110,6 +110,12 @@ class GenieConfigTest {
         log.info(genieConfig.getStructParseToolSystemPrompt());
     }
 
+    @Test
+    public void genieSopPromptTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getGenieSopPrompt());
+    }
+
 
 
 }

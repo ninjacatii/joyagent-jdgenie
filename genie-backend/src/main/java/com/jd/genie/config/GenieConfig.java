@@ -270,6 +270,9 @@ public class GenieConfig {
 
 	@Value("${autobots.autoagent.genie_sop_prompt:}")
 	private String genieSopPrompt;
+    public String getGenieSopPrompt() {
+        return getConfig(genieSopPrompt);
+    }
 
     @Value("${autobots.autoagent.genie_base_prompt:}")
     private String genieBasePrompt;
