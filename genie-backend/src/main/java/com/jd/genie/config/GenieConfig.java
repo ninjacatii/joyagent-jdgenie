@@ -221,6 +221,9 @@ public class GenieConfig {
 
     @Value("${autobots.autoagent.summary.system_prompt:}")
     private String summarySystemPrompt;
+    public String getSummarySystemPrompt() {
+        return getConfig(summarySystemPrompt);
+    }
 
     @Value("${autobots.autoagent.digital_employee_prompt:}")
     private String digitalEmployeePrompt;

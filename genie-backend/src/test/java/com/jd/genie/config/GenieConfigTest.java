@@ -92,6 +92,12 @@ class GenieConfigTest {
         log.info(genieConfig.getFileToolDesc());
     }
 
+    @Test
+    public void summarySystemPromptTest() {
+        GenieConfig genieConfig = SpringContextHolder.getApplicationContext().getBean(GenieConfig.class);
+        log.info(genieConfig.getSummarySystemPrompt());
+    }
+
 
 
 }
